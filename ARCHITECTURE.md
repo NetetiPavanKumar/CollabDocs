@@ -1,6 +1,6 @@
 # CollabDocs — Architecture Note
 
-### 1. Overview
+## 1. Overview
 
 CollabDocs is a lightweight collaborative document editor inspired by Google Docs.
 
@@ -16,7 +16,7 @@ The implementation focuses on the core requirements of the assessment while inte
 
 ---
 
-### 2. Architecture
+## 2. Architecture
 
 ```text
                     ┌──────────────────────┐
@@ -40,11 +40,11 @@ The implementation focuses on the core requirements of the assessment while inte
                     └──────────────────────┘
 ```
 
-### 3. Frontend
+## 3. Frontend
 
 The frontend is built with React and Vite.
 
-## Main responsibilities
+### Main responsibilities
 
 Display the document dashboard
 Create and rename documents
@@ -55,7 +55,7 @@ Communicate with the backend through Axios
 Handle client-side routing using React Router
 
 
-## Rich-text editing
+### Rich-text editing
 
 Tiptap is used as the editor.
 
@@ -72,7 +72,7 @@ Font sizes
 
 to be persisted and restored when the document is reopened.
 
-### 4. Backend
+## 4. Backend
 
 The backend uses Node.js and Express.
 
@@ -96,18 +96,18 @@ Unauthorized users receive:
 
 This means document access is not enforced only through the frontend.
 
-### 5. Database
+## 5. Database
 
 MongoDB is used for persistence through Mongoose.
 
-## User
+### User
 
 A user contains:
 
 Name
 Email
 
-## Document
+### Document
 
 A document contains:
 
@@ -120,7 +120,7 @@ Updated timestamp
 
 The relationship is represented using MongoDB ObjectId references.
 
-### 6. Sharing Model
+## 6. Sharing Model
 
 The application uses an owner-based sharing model.
 
@@ -144,7 +144,7 @@ Shared with me
 
 This makes document ownership and shared access visible to the user.
 
-### 7. Authentication Approach
+## 7. Authentication Approach
 
 For this assessment, authentication is intentionally simulated using seeded users.
 
@@ -162,7 +162,7 @@ OAuth
 Role-based identity management
 
 
-### 8. File Import
+## 8. File Import
 
 The frontend supports importing:
 
@@ -181,7 +181,7 @@ Markdown files are imported as editable plain text rather than being rendered as
 
 This keeps the import workflow lightweight while satisfying the file workflow requirement.
 
-### 9. Persistence Flow
+## 9. Persistence Flow
 
 When a user saves a document:
 
@@ -209,7 +209,7 @@ Reopening
 Browser refresh
 Application restarts
 
-### 10. Authorization Flow
+## 10. Authorization Flow
 
 For protected document operations:
 
@@ -230,7 +230,7 @@ Find Document
 ```
 Authorization is performed on the server so that simply manipulating the frontend does not grant document access.
 
-### 11. Testing
+## 11. Testing
 
 The backend includes an automated Jest/Supertest test.
 
@@ -241,11 +241,11 @@ The test verifies that an unauthorized user attempting to access a document rece
 ```
 This validates the server-side document authorization rule.
 
-### 12. Deployment
+## 12. Deployment
 
 The application is deployed using Render.
 
-## Frontend
+### Frontend
 
 The React/Vite frontend is deployed as a Render Static Site.
 
@@ -265,7 +265,7 @@ The frontend receives the production backend URL through:
 VITE_API_URL
 ```
 
-## Backend
+### Backend
 
 The Express backend is deployed as a Render Web Service.
 
@@ -279,7 +279,7 @@ The API exposes a health endpoint:
 ```bash
 GET /api/health
 ```
-### 13. Routing
+## 13. Routing
 
 The frontend uses React Router for document URLs such as:
 
@@ -295,25 +295,25 @@ A Render rewrite rule routes unknown frontend paths to:
 
 This allows React Router to handle direct navigation and browser refreshes correctly.
 
-### 14. Design Decisions
+## 14. Design Decisions
 
-## Tiptap JSON instead of HTML
+### Tiptap JSON instead of HTML
 
 Structured editor JSON preserves document semantics and formatting more reliably than storing presentation-oriented HTML.
 
-## Simulated users instead of full authentication
+### Simulated users instead of full authentication
 
 The assessment focuses on document sharing and authorization rather than identity management, so seeded users provide a simple demonstration without adding unnecessary authentication complexity.
 
-## Browser-based file import
+### Browser-based file import
 
 Using FileReader keeps the import implementation lightweight and avoids unnecessary backend file-processing infrastructure.
 
-## REST API instead of real-time synchronization
+### REST API instead of real-time synchronization
 
 The assessment's core requirements are satisfied through persistent document operations. Real-time collaboration would require additional synchronization infrastructure such as WebSockets and conflict handling.
 
-### 15. Current Limitations
+## 15. Current Limitations
 
 The current implementation intentionally does not include:
 
