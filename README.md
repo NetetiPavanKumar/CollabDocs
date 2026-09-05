@@ -62,8 +62,8 @@ The application uses seeded users to demonstrate document ownership and sharing.
 Example users:
 
 - Pavan Kumar Neteti
-- Alice
-- Bob
+- AJ
+- Vinay Ratnam
 
 Authentication is intentionally simulated using a current-user selector for this assessment.
 
