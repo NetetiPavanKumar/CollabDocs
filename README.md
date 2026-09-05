@@ -74,57 +74,82 @@ Authentication is intentionally simulated using a current-user selector for this
 ```bash
 git clone https://github.com/NetetiPavanKumar/CollabDocs.git
 cd CollabDocs
+```
 
 
 
-2. Backend setup
+### 2. Backend setup
+```bash
 cd backend
 npm install
+```
 
 Create a .env file:
 
+```bash
 PORT=5000
 MONGO_URI=your_mongodb_connection_string
+```
 
 Seed the demo users:
-
+```bash
 npm run seed
+```
 
 Start the backend:
-
+```bash
 npm run dev
+```
 
 The API will run at:
 
+```bash
 http://localhost:5000
-3. Frontend setup
+```
+### 3. Frontend setup
 
 Open another terminal:
+
+```bash
 
 cd frontend
 npm install
 
+```
+
 Create a .env file:
 
+```bash
 VITE_API_URL=http://localhost:5000/api
+```
 
 Start the frontend:
 
+```bash
 npm run dev
+```
+
 Testing
 
 From the backend directory:
 
+
+```bash
 npm test
+```
 
 The automated test verifies that a user who does not own or have access to a document receives a 403 Forbidden response.
 
-Production Build
+### Production Build
 
 From the frontend directory:
 
+```bash
 npm run build
-Project Structure
+```
+### Project Structure
+
+```bash
 Collab_Docs/
 │
 ├── frontend/
@@ -144,7 +169,8 @@ Collab_Docs/
 │   └── package.json
 │
 └── README.md
-Current Limitations
+```
+### Current Limitations
 
 This assessment implementation intentionally keeps the scope focused on the core requirements.
 
@@ -155,7 +181,7 @@ Markdown files are imported as plain editable text.
 DOCX import/export is not currently supported.
 Future Improvements
 
-Possible future enhancements include:
+### Possible future enhancements include:
 
 Real-time collaboration
 Presence indicators
@@ -167,6 +193,6 @@ Document search
 Offline editing
 
 
-License
+### License
 
 This project was created as part of a full-stack product engineering assessment.
